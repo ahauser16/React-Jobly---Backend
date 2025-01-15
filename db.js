@@ -2,10 +2,11 @@
 /** Database setup for jobly. */
 const { Client } = require("pg");
 const { getDatabaseUri } = require("./config");
+const supabase = require("./supabaseClient");
 
 let db;
 
-if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "supabase") {
+if (process.env.NODE_ENV === "production") {
   db = new Client({
     connectionString: getDatabaseUri(),
     ssl: {
@@ -22,4 +23,4 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "supabase"
 
 db.connect();
 
-module.exports = db;
+module.exports = { db, supabase };
