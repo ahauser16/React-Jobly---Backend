@@ -4,6 +4,7 @@
 - [react jobly (backend)](#react-jobly-backend)
   - [Refactor Notes](#refactor-notes)
     - [To Do List](#to-do-list)
+      - [Supabase Integration / NOTES](#supabase-integration--notes)
       - [data table todos](#data-table-todos)
       - [models todos](#models-todos)
       - [schemas todos](#schemas-todos)
@@ -46,6 +47,11 @@
 These notes are for how to use this template for my own backend.
 
 ### To Do List
+
+#### Supabase Integration / NOTES
+
+- see `supabase_notes.md`
+
 
 #### data table todos
 - [ ] refactor `jobly.sql` to `snacris.sql` by changing "jobly" references to "snacris" references.  The file should still prompt the user to confirm the deletion and recreation of the `snacris` database, drop the existing `snacris` database if it exists, create a new `snacris` database, execute the `snacris-schema.sql` (f/k/a `jobly-schema.sql`) file to create the database schema, execute the `snacris-seed.sql` file (f/k/a `jobly-seed.sql`) to populate the database with initial data and repeat the process for the `snacris_test` database which is used for testing purposes.

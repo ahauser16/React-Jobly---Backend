@@ -11,9 +11,16 @@ const PORT = +process.env.PORT || 3001;
 
 // Use dev database, testing database, or via env var, production database
 function getDatabaseUri() {
-  return (process.env.NODE_ENV === "test")
-      ? "jobly_test"
-      : process.env.DATABASE_URL || "jobly";
+  if (process.env.NODE_ENV === "test") {
+    return process.env.TEST_DATABASE_URL;
+  } else if (process.env.NODE_ENV === "development") {
+    return process.env.DATABASE_URL;
+  } else if (process.env.NODE_ENV === "production") {
+    return process.env.DATABASE_URL;
+  } else if (process.env.NODE_ENV === "supabase") {
+    return process.env.SUPABASE_URL;
+  }
+  throw new Error("NODE_ENV is not set to a valid value");
 }
 
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
