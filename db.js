@@ -18,6 +18,10 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-db.connect();
+if (db.connect()){
+  console.log("Connected to database");
+} else {
+  console.log("Failed to connect to database");
+}
 
 module.exports = db;
